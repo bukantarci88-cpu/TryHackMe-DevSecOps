@@ -1,1 +1,1 @@
-Covers DevSecOps fundamentals, SDLC, and SSDLC with a focus on integrating security throughout the software development lifecycle.
+Integrating security from the start requires DevSecOps principles, secure SDLC practices, continuous security testing, and proactive vulnerability management.
