@@ -1,6 +1,6 @@
 # DevSecOps 4.5. Container Hardening
 
-### ****Task 1 - Introduction
+### Task 1 - Introduction
 
 This module has taught you the basics of Docker and the potential vulnerabilities associated with containers. This room will teach you the various ways of securing your containers. Learning Objectives:
 
@@ -354,11 +354,8 @@ aa-status
 
 Reviewing Docker images prior to execution is critical because untrusted images—such as cryptomining malware discovered on Docker Hub with millions of pulls—pose severe risks, making image layer analysis via published Dockerfiles essential for security.
 
-![depicting the layers of an image on DockerHub.](https://assets.tryhackme.com/additional/containerisation-module/t6/1.png)
-
 In the image above, we can see the various layers of the image on DockerHub. These layers are the steps that are executed during the building process of the image. Additionally, open-source code repositories for images on the Docker Hub will often be included, allowing you to review the entire Dockerfile.
 
-![depicting the Dockerfile of an image stored in the code repository of the application.](https://cdn-images.tryhackme.com/user-uploads/5de96d9ca744773ea7ef8c00/room-content/c2732263dd323f0c347e956e7348595b.png)
 
 In the image above, we can see the code for the Dockerfile. This allows us to audit the code and understand precisely what actions are being executed in the container. By analysing the code, we can check for vulnerabilities or malicious actions. Tools such as [Dive(opens in new tab)](https://github.com/wagoodman/dive) allow you to reverse engineer Docker images by inspecting what is executed and changed at each layer of the image during the build process.
 
