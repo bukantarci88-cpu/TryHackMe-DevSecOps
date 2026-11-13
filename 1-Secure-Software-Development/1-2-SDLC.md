@@ -14,7 +14,6 @@ A standardized framework of practices used to build high-quality software effici
 
 The aim of SDLC is to establish repeatable processes and predictable outcomes from which future projects can benefit. SDLC phases are usually divided into 6-8 phases. The set of phases are:
 
-![The seven phases of Software Development Life Cycle: Planning, Define Requirements, Design & Prototyping, Software Development, Testing, Deployment, and Operations & Maintenance](https://cdn-images.tryhackme.com/user-uploads/61a7523c029d1c004fac97b3/room-content/7ef40248fff3b4a6584481428220102f.png)
 
 - **Planning**: The planning phase encompasses all aspects of project and product management. This includes resource allocation, project scheduling, cost estimation etc.
 - **Requirements** **Definition**: is considered part of planning to determine what the application is supposed to do and its requirements. For example, a social media application would require the ability to connect with a friend.
@@ -133,7 +132,7 @@ Culture, Automation, Lean, Measurement, Sharing
 
 **DevOps Metrics:** Key operational metrics used to track release speed, deployment frequency, and system reliability for continuous improvement. Here are the essential metrics gathered by engineers and the questions it aims to answer:
 
-- Meantime to production ([MTTP(opens in new tab)](https://about.gitlab.com/handbook/engineering/infrastructure/team/delivery/metrics.html)). What is the turnaround time for newly committed source code?
+- Meantime to production ([MTTP](https://about.gitlab.com/handbook/engineering/infrastructure/team/delivery/metrics.html)). What is the turnaround time for newly committed source code?
 - Frequency of deployment. What is the frequency of deployment of releases? The average lead time. How long does it take to develop, build, test, and deploy a new feature?
 - Speed of deployment. A new release is deployed into production; how long does it take?
 - Deployment Agility. You can measure deployment agility by combining deployment speed and frequency.
