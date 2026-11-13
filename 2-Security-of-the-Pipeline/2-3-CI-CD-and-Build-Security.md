@@ -731,10 +731,6 @@ Wrote string to a text file named `burak.txt` inside the `/flag/` directory.
 
 Authenticated to a Jenkins instance using the credentials `jenkins:jenkins`, exploited the Jenkins Script Console to obtain a Meterpreter shell as the **jenkins** user, verified your access with `id` and `pwd`, and then created the file `/flag/burak.txt` with the specified UUID value.
 
-![image.png](DevSecOps%202-3-CI-CD-and-Build-Security/image%2012.png)
-
-![image.png](DevSecOps%202-3-CI-CD-and-Build-Security/image%2013.png)
-
 ### Task 8 - Securing the Build Pipeline
 
 Implementing pipeline security controls to mitigate risks from compromised developer accounts and exposed credentials.
