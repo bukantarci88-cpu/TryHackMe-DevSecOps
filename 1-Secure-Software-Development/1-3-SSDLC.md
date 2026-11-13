@@ -22,7 +22,6 @@ To help grasp what your security posture is, you can start by doing the followin
 
 **SSDLC Processes**
 
-![Risk Matrix](https://tryhackme-images.s3.amazonaws.com/user-uploads/61a7523c029d1c004fac97b3/room-content/3d1e3379a1e3ccc46f3c7471095cbfae.png)
 
 - **Risk Assessment** during the early stages of SDLC, it is essential to identify security considerations that promote a security by design approach when functional requirements are gathered in the planning and requirements stages. For example, if a user requests a blog entry from a site, the user should not be able to edit the blog or remove unnecessary input fields.
 - **Threat Modelling** - is the process of identifying potential threats when there is a lack of appropriate safeguards. It is very effective when following a risk assessment and during the design stage of the SDLC, as Threat Modelling focuses on what should not happen. In contrast, design requirements state how the software will behave and interact. For example, ensure there is verification when a user requests account information.
@@ -58,7 +57,6 @@ Risk assessment is used to determine the level of the potential threat. Risk ide
 
 There are several types of Risk assessments best suited for different scenarios. Qualitative Risk Assessment and Quantitative Risk Assessment
 
-![Risk Matrix](https://tryhackme-images.s3.amazonaws.com/user-uploads/61a7523c029d1c004fac97b3/room-content/e5fb607dfd764c3e162da1783dd58e02.png)
 
 **Answer the questions below**
 
@@ -85,7 +83,6 @@ STRIDE stands for Spoofing, Tampering, Repudiation, Information Disclosure, Deni
 - **Denial of Service:** Exhaustion of resources, preventing authorised users from accessing a system, violating availability.
 - **Elevation of Privilege:** Gaining unauthorised access by escalating privileges, violating authorisation principles.
 
-![STRIDE diagram](https://tryhackme-images.s3.amazonaws.com/user-uploads/61a7523c029d1c004fac97b3/room-content/a5904cf6f063a62e77df6623eb1cbd33.png)
 
 **DREAD**
 
@@ -108,8 +105,6 @@ PASTA stands for Process for Attack Simulation and Threat Analysis. It aligns te
 - **Vulnerabilities & Weaknesses Analysis:** Assess and mitigate weaknesses.
 - **Attack/Exploit Enumeration & Modelling:** Simulate attack paths and vulnerabilities.
 - **Risk Impact Analysis:** Document risks and propose mitigation steps.
-
-![PASTA diagram](https://tryhackme-images.s3.amazonaws.com/user-uploads/61a7523c029d1c004fac97b3/room-content/8222ed08e31753d975ec3ec3aa2e43a9.png)
 
 **Answer the questions below**
 
@@ -144,7 +139,6 @@ PASTA
 
 **Choosing tools:** Complementary Application Security Testing (AST) methodologies—integrating static analysis (SAST), dynamic runtime scanning (DAST), and interactive agent verification (IAST)—collaborate across the software development lifecycle to provide continuous, multi-layered risk discovery, validation, and automated security gating within DevSecOps pipelines. 
 
-![Security Testing Timeline](https://tryhackme-images.s3.amazonaws.com/user-uploads/61a7523c029d1c004fac97b3/room-content/ed41446ac19972111b12a8b41bdb3599.png)
 
 Software Composition Analysis (SCA) evaluates third-party open-source components and dependency trees to detect known vulnerabilities and enforce legal license compliance, enabling automated governance and risk mitigation throughout the software development lifecycle.
 
