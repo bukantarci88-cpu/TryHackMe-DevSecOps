@@ -215,7 +215,6 @@ Copy the entire contents of the public key, including the "ssh-ed25519" prefix a
 4. Give the key a title, such as "My GitLab SSH Key".
 5. Click the "Add Key" button to save the SSH key to your GitLab account.
 
-![ssh key add box](https://cdn-images.tryhackme.com/user-uploads/61a7523c029d1c004fac97b3/room-content/a45e79c676314e036d865c952234f097.png)
 
 **Cloning the Project:** After you become familiar with the project, clone it to your local machine using the following command: `git clone <project-URL>` where **project-URL** is the same URL you used to log in with on your browser. Then enter the login credentials from before. If you want to use the SSH protocol, first add the `gitlab.tryhackme.loc` hostname to your hosts file with the command `echo 'MACHINE_IP gitlab.tryhackme.loc' >> /etc/hosts`. Then get the SSH URL found under the `Clone drop-down`:
 
@@ -275,7 +274,6 @@ Verify that the changes you made in the branch are now in the main branch by che
 1. Used the `os.Getenv()` function to read the `NOSTROMO_API_URL`, `NOSTROMO_USERNAME`, and `NOSTROMO_PASSWORD` environment variables, which can be managed using GitLab's secrets management feature.
 2. Since `os.Getenv` retrieves sensitive information such as database credentials, the nostromo.go codebase is more secure and easier to maintain. If the credentials need to be updated or rotated, they can be updated in the environment variables without modifying the code directly.
 
-![merge example](https://cdn-images.tryhackme.com/user-uploads/61a7523c029d1c004fac97b3/room-content/16987028d236a18237d596d55b14c62c.png)
 
 **Don't merge the changes yet, we still haven't finished securing the Nostromo API. Continue to the next task to retrieve the final flag!**
 
@@ -323,7 +321,7 @@ Now you can securely store the credentials and access them using environment var
 
 **Bonus**
 
-Have you noticed there is a `.gitlab-ci.yml` file? But there are no pipelines, workflows or "status checks"? To research what that file is for, check out: [https://docs.gitlab.com/ee/ci/yaml/gitlab_ci_yaml.html(opens in new tab)](https://docs.gitlab.com/ee/ci/yaml/gitlab_ci_yaml.html). Although is out of scope for this room, keep your eyes peeled for the next room in the pathway: "Build System Security".
+Have you noticed there is a `.gitlab-ci.yml` file? But there are no pipelines, workflows or "status checks"? To research what that file is for, check out: [https://docs.gitlab.com/ee/ci/yaml/gitlab_ci_yaml.htm](https://docs.gitlab.com/ee/ci/yaml/gitlab_ci_yaml.html). Although is out of scope for this room, keep your eyes peeled for the next room in the pathway: "Build System Security".
 
 Can you figure out what the contents of `.gitlab-ci.yml`  means?
 
