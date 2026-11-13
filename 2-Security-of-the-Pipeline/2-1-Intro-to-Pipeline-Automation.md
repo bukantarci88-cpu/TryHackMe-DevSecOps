@@ -6,9 +6,6 @@ Automation in SDLC and DevOps accelerates production but shifts security risks t
 
 ### Task 2 - DevOps Pipelines Explained
 
-The diagram below shows what a typical pipeline can look like, as well as the software that could be used for this purpose:
-
-![Pipeline diagram](https://cdn-images.tryhackme.com/user-uploads/6093e17fa004d20049b6933e/room-content/5bf9574f4b8f6bc202123c9476650e58.png)
 
 For each of these items, we will look at what they are, the common tools used for them, an introduction to their security, and a case study of what can happen when security fails.  
 
