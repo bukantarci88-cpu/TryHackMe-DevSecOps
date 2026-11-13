@@ -14,8 +14,6 @@ This room is the first of a series explaining the popular technology of containe
 
 Containerisation platforms remove this headache by packaging the dependencies together and “isolating” (**note:** this is not to be confused with "security isolation" in this context) the application’s environment. If the device supports the containerisation engine, a user will be able to run the application and have the same behaviours.
 
-![A diagram demonstrating three containers on a single computer](https://cdn-images.tryhackme.com/user-uploads/5de96d9ca744773ea7ef8c00/room-content/8f954f234473ae8f0783d42838bf7eb5.png)
-
 In the screenshot above, we can see how three applications and their environments (such as dependencies) are packaged together and do not directly interact with the physical computer - but rather the containerisation engine (in this case, it is Docker)
 
 Containers use kernel namespaces to isolate processes and resources from each other, improving security and preventing compromised applications from affecting other containers. Unlike virtual machines or lab environments, containers do not require a full operating system, making them more efficient in terms of disk space, CPU, and memory usage.
@@ -124,15 +122,11 @@ Namespaces essentially segregate system resources such as processes, files and m
 - A namespace
 - A process identifier (PID)
 
-Namespaces are how containerisation is achieved! Processes can only "see" other processes that are in the same namespace - no conflicts in theory. Take Docker, for example, every new container will be running as a new namespace, although the container may be running multiple applications (and in turn, processes). Let's prove the concept of containerisation by comparing the number of processes there are in a Docker container that is running a web server versus the host operating system at the time:
-
-![an image depicting the large amount of processes running within a normal operating system](https://cdn-images.tryhackme.com/user-uploads/5de96d9ca744773ea7ef8c00/room-content/ca9a3fd100bc4f0f9709d62925678cbc.png)
+Namespaces are how containerisation is achieved! Processes can only "see" other processes that are in the same namespace - no conflicts in theory. Take Docker, for example, every new container will be running as a new namespace, although the container may be running multiple applications (and in turn, processes). Let's prove the concept of containerisation by comparing the number of processes there are in a Docker container that is running a web server versus the host operating system at the time.
 
 Put simply, the process with an ID of 0 is the process that is started when the system boots. Process numbers increment and must be started by another process, so naturally, the next process ID will be #1. This process is the systems `init` , for example, the latest versions of Ubuntu use `systemd`. Any other process that runs will be controlled by `systemd` (process #1).
 
-We can use process #1's namespace on an operating system to escalate our privileges. Whilst containers are designed to use these namespaces to isolate from each other, they can instead coincide with the host computer's processes... This gives us a nice opportunity to escape!
-
-![an image depicting the limited amount of processes running within a container](https://cdn-images.tryhackme.com/user-uploads/5de96d9ca744773ea7ef8c00/room-content/8dc65b64a94dcd264dfddf8feca7af8f.png)
+We can use process #1's namespace on an operating system to escalate our privileges. Whilst containers are designed to use these namespaces to isolate from each other, they can instead coincide with the host computer's processes.
 
 **Answer the questions below**
 
