@@ -207,7 +207,7 @@ Internal dependency
 
 Dependency Confusion is a vulnerability that can exist if our organisation uses internal dependencies that are managed through a dependency manager. In short, a race condition can be created by an attacker that could lead to a malicious dependency being used instead of the internal one. 
 
-**Background:** Dependency Confusion was discovered by [Alex Birsan in 2021(opens in new tab)](https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610). The issue stems from how internal dependencies are managed. Let's take a look at a simple example in Python:
+**Background:** Dependency Confusion was discovered by [Alex Birsan in 2021](https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610). The issue stems from how internal dependencies are managed. Let's take a look at a simple example in Python:
 
 `pip install numpy`
 
@@ -226,9 +226,7 @@ The `--extra-index-url` argument tells pip that an additional Pypi server shou
 - Developers often ask questions on public forums such as StackOverflow but do not obfuscate sensitive information such as the names of libraries being used, some of which could be internal dependencies.
 - Some compiled applications like NodeJS will often disclose internal package names in their `package.json` file, which is usually exposed in the application itself.
 
-Once an attacker learns the name of an internal dependency, they can attempt to host a package with a similar name on one of the external package repos but with a higher version number. This will force any system that attempts to build the application and install the dependency to get confused between the internal and external package, and if the external one is chosen, the attacker's dependency confusion attack will succeed. The full attack is shown in the diagram below:
-
-![Diagram for showing dependency confusion](https://cdn-images.tryhackme.com/user-uploads/6093e17fa004d20049b6933e/room-content/32b158ecec6d8ed7fbad6d97630cc414.png)
+Once an attacker learns the name of an internal dependency, they can attempt to host a package with a similar name on one of the external package repos but with a higher version number. This will force any system that attempts to build the application and install the dependency to get confused between the internal and external package, and if the external one is chosen, the attacker's dependency confusion attack will succeed. 
 
 **Considerations:** There are a couple of things that should be kept in mind:
 
@@ -402,7 +400,7 @@ Once built, our Pip package will be available under the dist folder and can be u
 
 `twine upload dist/datadbconnect-9000.0.2.tar.gz --repository-url http://external.pypi-server.loc:8080`
 
-If you are asked for credentials, just leave them empty. You can also safely ignore the error and warning messages as long as the final output shows the package upload reaching 100%. Just a reminder again that we are simulating an external PyPI repo to not break their terms of service. If this were a real attack, the package would be uploaded to PyPI's main [repo(opens in new tab)](https://pypi.org/). Let's start a listener for our shell:
+If you are asked for credentials, just leave them empty. You can also safely ignore the error and warning messages as long as the final output shows the package upload reaching 100%. Just a reminder again that we are simulating an external PyPI repo to not break their terms of service. If this were a real attack, the package would be uploaded to PyPI's main [repo](https://pypi.org/). Let's start a listener for our shell:
 
 `nc -lvp 8080`
 
@@ -430,7 +428,7 @@ Knowing that this is an internal package, the developer team added an additional
 **Defences:** Protecting internal dependencies is a massive security endeavour. Since we have to create, maintain, and host these dependencies ourselves, the security project is much larger than that of external dependencies. The following defence strategies should be considered for all internal dependencies:
 
 - Internal dependencies should be actively maintained. This will ensure that vulnerabilities in these dependencies do not affect multiple applications and services.
-- The hosting infrastructure of internal dependencies should be secured. The following [Microsoft whitepaper(opens in new tab)](https://azure.microsoft.com/mediahandler/files/resourcefiles/3-ways-to-mitigate-risk-using-private-package-feeds/3%20Ways%20to%20Mitigate%20Risk%20When%20Using%20Private%20Package%20Feeds%20-%20v1.0.pdf) provides the following three key focus areas:
+- The hosting infrastructure of internal dependencies should be secured. The following [Microsoft whitepaper](https://azure.microsoft.com/mediahandler/files/resourcefiles/3-ways-to-mitigate-risk-using-private-package-feeds/3%20Ways%20to%20Mitigate%20Risk%20When%20Using%20Private%20Package%20Feeds%20-%20v1.0.pdf) provides the following three key focus areas:
     - Reference one private feed, not multiple. This contributes to protecting against dependency confusion attacks. With our python example, we would then use `-index-url` argument instead of `-extra-index-url` to indicate that the package must be collected from the specified index.
     - Protect your packages using controlled scopes. By controlling the scopes of dependencies, it will ensure that dependencies are locked to the applications that require them.
     - Utilise client-side verification features. Controls such as sub-resource integrity or version locking will ensure that applications and services will detect when malicious code is introduced into a dependency and refuse to execute it.
