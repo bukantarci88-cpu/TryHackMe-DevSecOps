@@ -12,7 +12,6 @@ Understanding and mitigating pipeline vulnerabilities to protect DevOps processe
 
 **Other Hosts:** If you are going to use your own attack machine, an OpenVPN configuration file will have been generated for you once you join the room. Click the **Download VPN Profile** button in the Network Control Panel:
 
-![](https://cdn-images.tryhackme.com/user-uploads/6093e17fa004d20049b6933e/room-content/6093e17fa004d20049b6933e-1776952665756.png)
 
 Use an OpenVPN client to connect.  
 
@@ -32,7 +31,6 @@ The "Initialization Sequence Completed" message tells you you are now connected 
 
 However, if you have already started the network and need to re-add this entry or update it, use your favourite text editor program to directly modify the entry in your `/etc/hosts` file. Once configured, you can navigate to [http://gitlab.tryhackme.loc](http://gitlab.tryhackme.loc/) to verify that your access is working. You should be met with the following page:
 
-![login page](https://cdn-images.tryhackme.com/user-uploads/6093e17fa004d20049b6933e/room-content/990b3e40c18bb16a990cde5410bd32fe.png)
 
 **Contacting MU-TH-UR 6000:** As you progress through this network, you must report your work to the MU-TH-UR 6000 mainframe, better known as Mother. You will have to register with Mother before you begin this perilous journey. SSH is being used for communication as detailed below:
 
@@ -127,19 +125,15 @@ maximum visibility
 
 **Introduction:** Before we explore misconfigurations, it is worth us first creating our very own pipeline so we can play around.
 
-**Gitlab Registration:** We will start the process by creating an account on the GitLab instance. Navigate to [http://gitlab.tryhackme.loc](http://gitlab.tryhackme.loc/) and select the **Register Now** option on the page. Fill in the required details to create your account and register. Remember to select a secure password and save it for your journey through this network! Once authenticated, you should be met by this page:
+**Gitlab Registration:** We will start the process by creating an account on the GitLab instance. Navigate to [http://gitlab.tryhackme.loc](http://gitlab.tryhackme.loc/) and select the **Register Now** option on the page. Fill in the required details to create your account and register. Remember to select a secure password and save it for your journey through this network!
 
-![authentication success](https://cdn-images.tryhackme.com/user-uploads/6093e17fa004d20049b6933e/room-content/55db0c02028b6c7628f8c22235ba8093.png)
 
 Feel free to explore the features of the Gitlab server. Gitlab is quite similar to Github; however, it allows you to host your very own server!
 
-**Project Creation:** Now that you have an account, the next step is to create a new project. Feel free to create some of your projects directly to play around with the feature. However, since we want to play around with pipelines, you can make a fork of an existing project that has been created for this purpose. Click on the *Your work tab*, then the Explore option, and search for BasicBuild. You will see a project like this:
+**Project Creation:** Now that you have an account, the next step is to create a new project. Feel free to create some of your projects directly to play around with the feature. However, since we want to play around with pipelines, you can make a fork of an existing project that has been created for this purpose. Click on the *Your work tab*, then the Explore option, and search for BasicBuild.
 
-![explore page](https://cdn-images.tryhackme.com/user-uploads/6093e17fa004d20049b6933e/room-content/ba274fe1b4b619508c2bea4961bba823.png)
 
-Click on the project and then on Fork. For the project options, make sure to specify your username as the namespace and to set the project to Private, as shown below.
-
-![project options](https://cdn-images.tryhackme.com/user-uploads/6093e17fa004d20049b6933e/room-content/ea7a7734618d95cd1a701e14402ebf81.png)
+Click on the project and then on Fork. For the project options, make sure to specify your username as the namespace and to set the project to Private.
 
 Once done, you can fork the project! This now creates a copy of the project you own and can configure.
 
@@ -207,17 +201,11 @@ The first step of the deploy job is to create a new directory under /tmp/ where 
 <img width="584" height="168" alt="image 3" src="https://github.com/user-attachments/assets/f3093fb4-fe9c-458a-98d8-0dd4185950aa" />
 
 
- In your project, click on Settings and then CI/CD:
+ In your project, click on Settings and then CI/CD.
 
-![CI/CD menu setting](https://cdn-images.tryhackme.com/user-uploads/6093e17fa004d20049b6933e/room-content/9a8bb9c51c2f90b6d38b880be4b10b2a.png)
+Expand the Runners section,
 
-Expand the Runners section, and you should see the following screen:
-
-![runner section](https://cdn-images.tryhackme.com/user-uploads/6093e17fa004d20049b6933e/room-content/be6417445bc9a04a222c2f783cc3b24d.png)
-
-Here, you will be able to configure a new runner for your project. Click the three dots and the Show Runner installation steps button. You will see the following screen:
-
-![runner installation button](https://cdn-images.tryhackme.com/user-uploads/6093e17fa004d20049b6933e/room-content/ad7b6d1c752c0abc2580477167f066c3.png)
+Here, you will be able to configure a new runner for your project. Click the three dots and the Show Runner installation steps button. 
 
 The first code block is to install the GitLab-runner application. Follow these steps to install the application on your attack machine. Once done, use the command in the second code block to register your runner. Follow the prompts as shown below for the installation process:
 
@@ -245,13 +233,9 @@ Runner registered successfully. Feel free to start it, but if it's running alrea
 Configuration (with the authentication token) was saved in "/etc/gitlab-runner/config.toml"
 ```
 
-**Make sure you selected the `shell` option at the end, otherwise your runner will not activate.** Now that your runner is configured, you can refresh the page on Gitlab, and you should see your runner:
+**Make sure you selected the `shell` option at the end, otherwise your runner will not activate.** Now that your runner is configured, you can refresh the page on Gitlab, and you should see your runner.
 
-![runner successfully installed](https://cdn-images.tryhackme.com/user-uploads/6093e17fa004d20049b6933e/room-content/8b798c1444c78b642199c08f3be01516.png)
-
-The last step is configuring your runner to execute untagged jobs, as our current CI Pipeline does not use tags. Normally, tags would be used to ensure that the correct runners pick up the various jobs. However, since we have a simple job, we can just tell our runner to execute all jobs. Click the little pencil icon and click Run untagged jobs:
-
-![run button](https://cdn-images.tryhackme.com/user-uploads/6093e17fa004d20049b6933e/room-content/84ff9051a95bc7a09eed29cf2887688b.png)
+The last step is configuring your runner to execute untagged jobs, as our current CI Pipeline does not use tags. Normally, tags would be used to ensure that the correct runners pick up the various jobs. However, since we have a simple job, we can just tell our runner to execute all jobs. Click the little pencil icon and click Run untagged jobs.
 
 The very last step before you use your running is to clear the .bash_logout file. This is due to an issue caused in the mismatched versions of Gitlab and the Gitlab runner. To do this, simply run the following command:
 
@@ -267,21 +251,14 @@ user@machine$ rm /home/gitlab-runner/.bash_logout
 4. Make an update to the file
 5. Click Commit changes
 
-Once done, your build process will have started! We can follow the process by clicking on Build and then Pipelines:
+Once done, your build process will have started! We can follow the process by clicking on Build and then Pipelines.
 
-![build pipelines button](https://cdn-images.tryhackme.com/user-uploads/6093e17fa004d20049b6933e/room-content/eb987192231a3765ee4a2936220bceff.png)
+Once there, you should see that your pipeline has kicked off! Click on the pipeline to view which job it is currently performing and the output thereof.
 
-Once there, you should see that your pipeline has kicked off! Click on the pipeline to view which job it is currently performing and the output thereof:
-
-![current job running screen](https://cdn-images.tryhackme.com/user-uploads/6093e17fa004d20049b6933e/room-content/f7486c18218051d7cbf394915074ddf6.png)
-
-You can also click on the pipeline to view its progress:
-
-![progress status for pipeline](https://cdn-images.tryhackme.com/user-uploads/6093e17fa004d20049b6933e/room-content/0ac8ac26762396a70e76c3f76e67cd53.png)
+You can also click on the pipeline to view its progress.
 
 Once completed, your application will have been deployed! You can verify this by navigating to [http://127.0.0.1:8081/](http://127.0.0.1:8081/), and you should be met by the web application homepage.
 
-![web application homepage](https://cdn-images.tryhackme.com/user-uploads/6093e17fa004d20049b6933e/room-content/c18c9c2b2bcf7e4075cfe9e1dc54912e.png)
 
 You have created your very own CI/CD pipeline and build process! 
 
@@ -398,21 +375,13 @@ for project in projects:
 
 Using generated API tokens to authenticate scripts that automate the mass exfiltration of repositories. Authenticate to the Gitlab server and perform the following steps:
 
-1. Click on your profile icon and select Preferences:
+1. Click on your profile icon and select Preferences.
 
-![preferences menu](https://cdn-images.tryhackme.com/user-uploads/61a7523c029d1c004fac97b3/room-content/dc48bbb2b20c6149e5f5e28859905eb0.png)
+2. Click on Access Tokens.
 
-2. Click on Access Tokens:
+3. Enter a name for a new API token and select the api, read_api, and read_repository scopes.  
 
-![access tokens menu](https://cdn-images.tryhackme.com/user-uploads/61a7523c029d1c004fac97b3/room-content/4409fc960a7e0dddbb36228b67b76ba6.png)
-
-3. Enter a name for a new API token and select the api, read_api, and read_repository scopes:
-
-![api initiation and scope selection](https://cdn-images.tryhackme.com/user-uploads/6093e17fa004d20049b6933e/room-content/8bb03761c2a10024a9b92d30251174a0.png)
-
-4. Click Create personal access token, reveal, and copy your access token to a safe location:
-
-![create personal access token](https://cdn-images.tryhackme.com/user-uploads/6093e17fa004d20049b6933e/room-content/7c80e96791b36465b1494a2f81b41fb7.png)
+4. Click Create personal access token, reveal, and copy your access token to a safe location.
 
 5. Add the token to the script and execute it to download all repos:
 
@@ -519,17 +488,11 @@ The answers to these questions can help you determine the attack surface of your
 
 **Exploiting a Merge Build:** A common toxic combination is called On-Merge builds. 
 
-![README file](https://cdn-images.tryhackme.com/user-uploads/6093e17fa004d20049b6933e/room-content/c3d77fd5295a61972645e7b1cd5785c4.png)
-
 **Automated Webhook Integration:** GitLab notifies Jenkins via webhooks whenever a merge request is opened or code is pushed, prompting Jenkins to automatically pull the repository and execute the `Jenkinsfile`.
 
-**Poisoned Pipeline Execution Vector:** Because on-merge builds execute the pipeline code included in the merge request, any user who can modify the repository or the `Jenkinsfile` can trick the build agent into executing arbitrary malicious instructions. Navigate to the repo and press the Fork option:
+**Poisoned Pipeline Execution Vector:** Because on-merge builds execute the pipeline code included in the merge request, any user who can modify the repository or the `Jenkinsfile` can trick the build agent into executing arbitrary malicious instructions. Navigate to the repo and press the Fork option.
 
-![fork option button](https://cdn-images.tryhackme.com/user-uploads/6093e17fa004d20049b6933e/room-content/e10e1413b8ac41c5a84443a2cb38bd65.png)
-
-Forking will create a copy of the project. Select your namespace, mark the project as Private, and select Fork project:
-
-![fork project button](https://cdn-images.tryhackme.com/user-uploads/6093e17fa004d20049b6933e/room-content/62782c4148e9f1c3bc46a34702049b98.png)
+Forking will create a copy of the project. Select your namespace, mark the project as Private, and select Fork project.
 
 Modifying the Jenkinsfile to execute custom shell commands while monitoring step-by-step build feedback. To do this, we will first create a simple reverse shell file:
 
@@ -558,9 +521,7 @@ pipeline {
     }
 ```
 
-**Note:** you will need to replave `ATTACKER_IP` with the IP of your CICD tun VPN adater IP. Once you have made the edit, commit the changes. To have Jenkins execute our now malicious Jenkinsfile, we need to create a merge request:
-
-![merge request](https://cdn-images.tryhackme.com/user-uploads/6093e17fa004d20049b6933e/room-content/cc884baa3ca5695ade221851e2b67e9f.png)
+**Note:** you will need to replave `ATTACKER_IP` with the IP of your CICD tun VPN adater IP. Once you have made the edit, commit the changes. To have Jenkins execute our now malicious Jenkinsfile, we need to create a merge request.
 
 Create the merge request, add a description, and click Create. If you completed all the steps in a couple of seconds, you should see a call be made to your web server to download the shell and, shortly after, a new shell connection on the terminal!
 
@@ -633,13 +594,10 @@ Our build process has now been protected. The next point of attack is the build 
 
 To secure our build server, we want to restrict access to it. You would often find that multiple members have access to the same build server. In these cases, we need to apply granular access to ensure that a compromise of one user would not lead to the compromise of all builds. Furthermore, we want to restrict the likelihood of a user being compromised by using multi-factor authentication.
 
-**Exposed Build Server:** Let's take a look at the Jenkins build server in the network at [http://jenkins.tryhackme.loc:8080/](http://jenkins.tryhackme.loc:8080/) You may have to first make another update to your `/etc/hosts` file with the IP of the machine shown in your network diagram. You should see the following screen:
-
-![Jenkins login screen](https://cdn-images.tryhackme.com/user-uploads/6093e17fa004d20049b6933e/room-content/72cdd7eb8412a7dae0f5a29031c6d520.png)
+**Exposed Build Server:** Let's take a look at the Jenkins build server in the network at [http://jenkins.tryhackme.loc:8080/](http://jenkins.tryhackme.loc:8080/) You may have to first make another update to your `/etc/hosts` file with the IP of the machine shown in your network diagram. 
 
 Let's try our luck with `jenkins:jenkins` and we should be authenticated!
 
-![authentication successful screen](https://cdn-images.tryhackme.com/user-uploads/6093e17fa004d20049b6933e/room-content/bc09936ce7f6b8bb843ca3306a31d4a2.png)
 
 In this task, we will take a look at using some of the MSF modules to attack the Jenkins build server. On the AttackBox or your Kali VM, start Metasploit in the terminal using `msfconsole`. We will make use of the jenkins_script_console module from MSF:
 
@@ -801,32 +759,22 @@ Implementing pipeline security controls to mitigate risks from compromised devel
 
 **The Two-Person Concept:** Even if we have access gates, we need to ensure that no single user can pass these access gates. If you are the developer who initiated the build, you should be prevented from passing the next access gate. This should always be someone else. By enforcing this with a technical control, it can be assured that in the event that a developer is compromised, a build cannot be pushed through. This is referred to as the two-person rule. Some build servers may not allow you to ensure a control on the access gate to ensure that it is a different person. A good workaround in these cases is to simply increase the count of approvals needed from 1 to 2. This way, the developer provides one approval, but a secondary person has to provide the other.
 
-**Exploiting Misconfigured Access Gates:** Attempting to commit a change directly to the protected `main` branch as the Ana user, and observing that developers are restricted to merge requests only. Let's test this by updating the README file and trying to commit the change to the main branch. Navigate to the README file and click Edit:
+**Exploiting Misconfigured Access Gates:** Attempting to commit a change directly to the protected `main` branch as the Ana user, and observing that developers are restricted to merge requests only. Let's test this by updating the README file and trying to commit the change to the main branch. Navigate to the README file and click Edit.
 
-![README file edit screen](https://cdn-images.tryhackme.com/user-uploads/6093e17fa004d20049b6933e/room-content/b25688bbf71085e1c73f493123fa206e.png)
-
-As you can see, Gitlab is automatically requesting that we start a merge request with the changes we want to make. You will also see that we cannot unselect the option to commit directly. Make a small change to the file and click Commit changes:
-
-![commit changes button](https://cdn-images.tryhackme.com/user-uploads/6093e17fa004d20049b6933e/room-content/c635e79ca83fc5914d68fd7818eb8116.png)
+As you can see, Gitlab is automatically requesting that we start a merge request with the changes we want to make. You will also see that we cannot unselect the option to commit directly. Make a small change to the file and click Commit changes.
 
 Immediately, you will see that we have to make a merge request for our change. Add a description and create the merge request. Ash's thought process behind this was that it would protect the main branch, as the company has a policy that states merge requests must be approved by a manager. Since we are now forced to make a merge request, the main branch is protected. However, Ash has made the following two errors in his security thought process:
 
 - Policies that are not enforced through a technology will not be respected by attackers. Sure, the policy says that a manager must approve the merge request, but if you read the merge request, you will see that from a technical standpoint, Gitlab indicates that approval is optional.
 - Although the main branch is protected by not allowing any direct pushes, since developers can still make merge requests, they can simply push their own merge request to commit code to the main branch. The two-person principle was not implemented to ensure that another person has to accept the merge request.
 
-Leveraging these mistakes, as an attacker, you can simply approve your own merge request (though it isn't even needed) and you can then merge it to the main branch, as shown below!
-
-![merged changes to main branch](https://cdn-images.tryhackme.com/user-uploads/6093e17fa004d20049b6933e/room-content/35a2237a1b9a00e9323cc57fb43e78b3.png)
+Leveraging these mistakes, as an attacker, you can simply approve your own merge request (though it isn't even needed) and you can then merge it to the main branch.
 
 Reviewing the code in the main branch, you have made a change to the main branch! Now comes the fun part. The GitLab runner was configured to only run on the main branch. Since we can now push code to the main branch, we can compromise the runner. Now that you know how to get your code to the main branch, make some changes to the .gitlab-ci.yml file to get code execution on the runner. You can use any of the techniques you have been taught up to this point!
 
 **Protecting the Pipeline:** Protecting your GitLab CI/CD pipeline is essential to ensure the security of your code and infrastructure. Here are steps you can take to protect your pipeline with access gates and prevent unauthorised code execution like the example above:
 
 **Limit Branch Access:** Restrict who can push to the main branch. Only trusted developers should have the ability to push code to this branch. You can do this by configuring branch protection rules in your GitLab repository settings. Navigate to Settings > Repository > Default branch. Configure the rules to require reviews before allowing changes.
-
-![settings page](https://cdn-images.tryhackme.com/user-uploads/61a7523c029d1c004fac97b3/room-content/59f53e8b497a103ef2fac4d1f7cd43c2.png)
-
-![settings menu](https://cdn-images.tryhackme.com/user-uploads/61a7523c029d1c004fac97b3/room-content/3a14d7b5725b25ea005dabfa126cd276.png)
 
 **Review Merge Requests:** Enforce merge requests (or pull requests) to make main branch changes. Merge requests provide a way to review and approve code changes before merging. You can configure a merge request approvals to ensure multiple team members review and approve changes.
 
@@ -888,17 +836,11 @@ Next on the list is making sure that our environments are secure. The last point
 
 **Environment Segregation:** Isolating build environments and agents to prevent pipeline side channels and unauthorized cross-environment access.
 
-**One Build Agent to Rule Them All:** In our next example, Ash has learnt from his mistakes and made sure only to provide Ana with access to the development (DEV) branch. Main is now fully restricted. We still have access to the DEV branch since Ash wants his developers to adopt an Agile development process. Luckily for us, the DEV branch does have a Gitlab runner attached to it. Navigate to the new repo at [http://gitlab.tryhackme.loc/ash/environments/(opens in new tab)](http://gitlab.tryhackme.loc/ash/environments/) to get started. Navigate to the Operate->Environment section to view the two environments:
+**One Build Agent to Rule Them All:** In our next example, Ash has learnt from his mistakes and made sure only to provide Ana with access to the development (DEV) branch. Main is now fully restricted. We still have access to the DEV branch since Ash wants his developers to adopt an Agile development process. Luckily for us, the DEV branch does have a Gitlab runner attached to it. Navigate to the new repo at [http://gitlab.tryhackme.loc/ash/environments/](http://gitlab.tryhackme.loc/ash/environments/) to get started. Navigate to the Operate->Environment section to view the two environments.
 
-![environment selection menu](https://cdn-images.tryhackme.com/user-uploads/61a7523c029d1c004fac97b3/room-content/181b067e9f88c1e4d0345ec6605e3d9d.png)
+Let's take a closer look at the last build that was performed for production. Click on the build and select the Pipeline tab to see the build that was executed for production.
 
-Let's take a closer look at the last build that was performed for production. Click on the build and select the Pipeline tab to see the build that was executed for production:
-
-![pipeline execution tab](https://cdn-images.tryhackme.com/user-uploads/6093e17fa004d20049b6933e/room-content/030f82f88a240d910122561278d1b65f.png)
-
-Investigate the pipeline and look at one of the jobs executed for the main pipeline. By clicking on a job that has the main tag, pay attention to the runner specified in the top right corner:
-
-![runner information](https://cdn-images.tryhackme.com/user-uploads/6093e17fa004d20049b6933e/room-content/d0c3156bd636b42c42d02ae635a354c9.png)
+Investigate the pipeline and look at one of the jobs executed for the main pipeline. By clicking on a job that has the main tag, pay attention to the runner specified in the top right corner.
 
 As we can see, runner number 6 was used for the build. Following the steps from the previous task, in the DEV branch, make a small change to the README file and observe which runner is being used for the job.
 
@@ -959,13 +901,9 @@ We can see the finish line in front of us! Our pipeline and build are almost sec
 
 **One Secret to Rule Them All:** Larry has now finally learnt his lesson and made sure to implement segregated runners for the different environments. But there is one more issue. While these pipelines may be segregated, we need to make sure that the secrets (or variables as they are known in Gitlab) are also segregated. If the scope for secrets is not narrowly defined, we can request the use of PROD secrets in our DEV build, allowing us to compromise the production environment one last time! Navigate to the last repo we used for this exploit: [http://gitlab.tryhackme.loc/ash/environments](http://gitlab.tryhackme.loc/ash/environments).
 
-Let's take a look at the environments and the latest builds for them, as we have done in the previous task. Taking a look at one of the production deployments, we can see that the build is making use of an API_KEY variable:
+Let's take a look at the environments and the latest builds for them, as we have done in the previous task. Taking a look at one of the production deployments, we can see that the build is making use of an API_KEY variable.
 
-![API_KEY variable](https://cdn-images.tryhackme.com/user-uploads/6093e17fa004d20049b6933e/room-content/185933ee3b6b3b0b94f1a7e903c0de5b.png)
-
-As Ana, we don't have the permissions required to list the different variables, but taking a look at the DEV branch's CI file, we can see that our DEV variable is different:
-
-![DEV variable](https://cdn-images.tryhackme.com/user-uploads/6093e17fa004d20049b6933e/room-content/8096bf2504d99fce279d30e27f3da62c.png)
+As Ana, we don't have the permissions required to list the different variables, but taking a look at the DEV branch's CI file, we can see that our DEV variable is different.
 
 In our case, the value is API_KEY_DEV. Let's make a change to this variable and also echo out the value to see if we can access the PROD variable. Make the change to the CI file in the DEV branch and see what happens!
 
