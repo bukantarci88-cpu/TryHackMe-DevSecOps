@@ -192,7 +192,6 @@ false positive
 
 SAST is one of the first tools to appear during the development lifecycle. It is often implemented during the coding stage, as there's no need to have a functional application to use it.
 
-![SAST in the Development Cycle](https://tryhackme-images.s3.amazonaws.com/user-uploads/5ed5961c6276df568891c3ea/room-content/8d4c2f1e6b6b61d8e13d8e0c4597773e.png)
 
 Depending on each case, SAST can be implemented in one of the following ways:
 
@@ -204,17 +203,11 @@ Depending on each case, SAST can be implemented in one of the following ways:
 - **Psalm:** The tool we've been using supports IDE integration by installing the Psalm plugin into VS Code directly from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=getpsalm.psalm-vscode-plugin). This plugin will check anything you type in real-time and show you the same alerts as the console version directly into your code. Taint analysis won't be available, so you'll only see the structural problems reported on a basic Psalm analysis.
 - **Semgrep:** Yet another SAST tool that can be installed into VS Code directly from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=Semgrep.semgrep). Just as with Psalm, it will show inline alerts directly in your code. Semgrep even allows us to build custom rules if needed. You can check the rules that are loaded for this project on the `semgrep-rules` directory inside the project's directory. The specifics on how to build Semgrep rules will be left for a future room, so don't worry about them now. You can check the rules in the directory, but this won't be required for this room.
 
-Both tools will work similarly by showing any problems detected directly inline in your code. The only notable difference is that Semgrep will run when you start VS Code and will show you the problems it detects on all of the files, while Psalm will only show you issues related to the file you are currently editing. The plugins will add the following information to your IDE screen:
+Both tools will work similarly by showing any problems detected directly inline in your code. The only notable difference is that Semgrep will run when you start VS Code and will show you the problems it detects on all of the files, while Psalm will only show you issues related to the file you are currently editing. The plugins will add the following information to your IDE screen.
 
-![SAST in VS Code](https://tryhackme-images.s3.amazonaws.com/user-uploads/5ed5961c6276df568891c3ea/room-content/0409daf7cdf144dfaa3e9f1e4ab2fcb9.png)
+For each line where issues are detected, you can get additional information by hovering the mouse pointer over it. Here's what you would get by hovering over line 46 of `login.php`.
 
-For each line where issues are detected, you can get additional information by hovering the mouse pointer over it. Here's what you would get by hovering over line 46 of `login.php`:
-
-![Inline Problems in VS Code](https://tryhackme-images.s3.amazonaws.com/user-uploads/5ed5961c6276df568891c3ea/room-content/9b3cd323e1ef63bac1c9dab83171827f.png)
-
-You can also check the complete list of issues by clicking the Errors indicator at the bottom of VS Code's screen:
-
-![Problems Panel](https://tryhackme-images.s3.amazonaws.com/user-uploads/5ed5961c6276df568891c3ea/room-content/a879e9d06f657dbfd45dcc874dc3c91f.png)
+You can also check the complete list of issues by clicking the Errors indicator at the bottom of VS Code's screen.
 
 Having your IDE check for problems allows you to produce cleaner code as a developer, contributing significantly to the overall security of your final application.
 
