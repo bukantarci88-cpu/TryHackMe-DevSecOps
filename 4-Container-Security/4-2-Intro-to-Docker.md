@@ -368,8 +368,6 @@ CMD ["apache2ctl", "-D","FOREGROUND"]
 
 For reference, the command to build this would be `docker build -t webserver .` (assuming the Dockerfile is in the same directory as where you run the command from). Once starting the container with the appropriate options (`docker run -d --name webserver -p 80:80  webserver`), we can navigate to the IP address of our local machine in our browser!
 
-![The default landing page of apache2 which can be used to confirm that the service is running](https://cdn-images.tryhackme.com/user-uploads/5de96d9ca744773ea7ef8c00/room-content/95f7f4b43b7cdf6079a71a7a3e19f937.png)
-
 The web server works! Currently, Apache2 is serving the default files because we have not added our own to the container.
 
 **Optimising Our Dockerfile:** There’s certainly an art to Docker - and it doesn’t stop with Dockerfiles! Firstly, we need to ask ourselves why is it essential to optimise our Dockerfile? Bloated Dockerfiles are hard to read and maintain and often use a lot of unnecessary storage! For example, you can reduce the size of a docker image (and reduce build time!) using a few ways:
@@ -425,7 +423,6 @@ Step 2/2 : RUN apt-get update -y && apt-get upgrade -y && apt-get install apache
 cmnatic@thm:~$
 ```
 
-![An illustration showing that the commands have been compressed into two layers.](https://cdn-images.tryhackme.com/user-uploads/5de96d9ca744773ea7ef8c00/room-content/743dd22bcf1f3a709ee6288d519d5930.png)
 
 Note here how there are now only two build steps (this will be two layers, making the build much quicker). This is just a tiny example of a Dockerfile, so the build time will not be so drastic, but in much larger Dockerfiles - reducing the number of layers will have a fantastic performance increase during the build.
 
@@ -453,9 +450,7 @@ t
 
 ### Task 5 - Intro to Docker Compose
 
-A tool for orchestrating multiple isolated containers as a single, unified service using a single configuration. This illustration shows how containers are deployed together using Docker Compose Vs. Docker:
-
-![A blue box (representing a computer) with a caption of docker, is isolated from another set of blue boxes (representing a computer).](https://cdn-images.tryhackme.com/user-uploads/5de96d9ca744773ea7ef8c00/room-content/c7c8b38dc06c22207134fb6f58d036a0.png)
+A tool for orchestrating multiple isolated containers as a single, unified service using a single configuration. This illustration shows how containers are deployed together using Docker Compose Vs. Docker.
 
 Before we demonstrate Docker Compose, let’s cover the fundamentals of using Docker Compose.
 
@@ -473,7 +468,6 @@ I have put some of the essential Docker Compose commands into the table below:
 | stop | This command will stop (**not** delete) the containers specified in the compose file. | `docker-compose stop` |
 | build | This command will build (but will not start) the containers specified in the compose file. | `docker-compose build` |
 
-***Note**: These are just a few of the possible commands. Check out the [compose documentatio](https://docs.docker.com/compose/reference/)nfor all possible options.*
 
 **A Showcase of Docker Compose:** With that said, let’s look into how we can use Docker Compose ourselves. In this scenario, I am going to assume the following requirements:
 
@@ -486,7 +480,6 @@ Now, we could manually run the two containers via the following:
 2. Running the Apache2 webserver container: `docker run -p 80:80 --name webserver --net ecommerce webserver`
 3. Running the MySQL Database server: `docker run --name database --net ecommerce webserver`
 
-![An illustration showing the two containers spun up using docker compose. Note that they are unable to communicate with one another](https://cdn-images.tryhackme.com/user-uploads/5de96d9ca744773ea7ef8c00/room-content/21ba7a242ec9660be9694e69ec4c33e6.png)
 
 *An illustration shows two containers running independently of each other and is **unable** to communicate with one another.*
 
@@ -499,7 +492,6 @@ Instead, we can use Docker Compose via `docker-compose up` to run these contai
 3. Extremely portable. We can share our *docker-compose.yml* file with someone else, and they can get the setup working precisely the same without understanding how the containers work individually.
 4. Easy to maintain and change. We don’t have to worry about specific containers using (perhaps outdated) images.
 
-![](https://cdn-images.tryhackme.com/user-uploads/5de96d9ca744773ea7ef8c00/room-content/4f236c94f79474475f2dc5df15146c91.png)
 
 *An illustration showing two containers deployed as a combined service. These two containers **can** communicate with one another.*
 
@@ -517,7 +509,6 @@ Instead, we can use Docker Compose via `docker-compose up` to run these contai
 | image | This instruction defines what image the container should be built with (you will need to use this or build). | mysql:latest |
 | networks | This instruction defines what networks the containers will be a part of. Containers can be part of multiple networks (i.e. a web server can only contact one database, but the database can contact multiple web servers). | ecommerce |
 
-***Note**: These are just some of the possible instructions possible. Check out the [compose file](https://docs.docker.com/compose/compose-file/) documentation for all possible instructions.*
 
 With that said, let’s look at our first docker-compose.yml file. This *docker-compose.yml* file assumes the following:
 
@@ -585,9 +576,7 @@ Docker works in a client/server model. Specifically, these two programs communic
 
 The program will interact with these two sockets to store or retrieve the data within them! A socket can either be a network connection or what is represented as a file. What's important to know about sockets is that they allow for Interprocess Communication (IPC). This simply means that processes on an operating system can communicate with each other!
 
-In the context of Docker, the Docker Server is effectively just an API. The Docker Server uses this API to **listen** for requests, whereas the Docker Client uses the API to **send** requests. For example, let's take this command: `docker run helloworld`. The Docker Client will request the Docker server to run a container using the image "helloworld". Now, whilst this explanation is fairly basic, it is the essential premise of how Docker works. Let's look at the following diagram to show this process in action:
-
-![illustrating the flow of Docker interaction using the docker.sock file on the operating system](https://cdn-images.tryhackme.com/user-uploads/5de96d9ca744773ea7ef8c00/room-content/7ef5f80912c890645b102b28a23b9b8b.png)
+In the context of Docker, the Docker Server is effectively just an API. The Docker Server uses this API to **listen** for requests, whereas the Docker Client uses the API to **send** requests. For example, let's take this command: `docker run helloworld`. The Docker Client will request the Docker server to run a container using the image "helloworld". Now, whilst this explanation is fairly basic, it is the essential premise of how Docker works. 
 
 What's interesting is that because of this, we can interact with the Docker Server using commands like `curl` or an API developer tool such as Postman. Now, using this is out of the scope for this room, but I'll demonstrate communicating with the Docker Server using Postman to list all images that are stored on the operating system:
 
