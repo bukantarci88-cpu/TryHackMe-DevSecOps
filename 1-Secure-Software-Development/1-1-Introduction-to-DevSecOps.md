@@ -13,11 +13,9 @@ This is the first room in a new DevSecOps learning path being developed. The n
 
 **Waterfall Model:** Traditional Waterfall development creates operational bottlenecks by locking teams into isolated sequential phases, accumulating security and functional debt until late-stage QA testing.
 
-![Diagram for Waterfall Software Development Model stages](https://tryhackme-images.s3.amazonaws.com/user-uploads/61a7523c029d1c004fac97b3/room-content/21ff900651b19689600a2a7d0cd2fcea.png)
 
 **Agile Model:** The Agile Model is a flexible, iterative software development framework established in the early 2000s that prioritizes adaptability, rapid delivery cycles, and collaborative principles over rigid sequential planning.
 
-![Diagram for Agile Software Development Model stages](https://tryhackme-images.s3.amazonaws.com/user-uploads/61a7523c029d1c004fac97b3/room-content/db09323bd5eed6fb32de796bdb20196f.png)
 
 **DevOps:** DevOps is a collaborative cultural and technical philosophy that breaks down traditional silos between development, system administration, and quality assurance teams by emphasizing shared responsibility, continuous communication, and small, reversible deployments aligned directly with business priorities.
 
@@ -48,7 +46,6 @@ building trust
 
 How does DevOps work? DevOps is **visualized as an infinite loop, describing all the comprising phases:**
 
-![the infinite loop diagram describing a DevOps lifecycle](https://tryhackme-images.s3.amazonaws.com/user-uploads/61a7523c029d1c004fac97b3/room-content/538ad9f777ec0153d5d648edd4bcf65a.png)
 
 1. **CI/CD** – In the previous task, we mentioned CI/CD (Continuous Integration and Continuous Deployment); CI/CD deals with the frequent merging of code and adding testing in an automated manner to perform checks as new code is pushed and merged. We can test code as we push and merge thanks to a new dynamic and routine in deployment, which takes the form of minor code changes systematically and routinely. Thanks to this change in dynamic, CI/CD helps detect bugs early and decreases the effort of maintaining modular code massively, which introduces reliable rollbacks of versions/code. 
 2. **INFRASTRUCTURE AS CODE** (IaC) – a way to manage and provision infrastructure through code and automation. Thanks to this approach, we can reuse code used to deploy infrastructure (for example, cloud instances), which helps in consistent resource creation and management. Standard tools for IaC are terraform, vagrant, etc. We will use these tools further in the pathway as we experiment with IaC security.
@@ -82,7 +79,6 @@ Implementing security measures during all stages of the development lifecycle (s
 
 **Why are we shifting left**
 
-![Shifting Left Benefits](https://tryhackme-images.s3.amazonaws.com/user-uploads/61a7523c029d1c004fac97b3/room-content/2078c48d1463aaf4245f2ed0d1175cab.png)
 
 Shift-Left security is an operational philosophy that embeds security testing, risk assessment, and compliance checks early into the initial phases of the software development lifecycle (SDLC) to eliminate post-development bottlenecks, prevent the accumulation of technical and security debt, and keep pace with rapid deployment cycles.
 
