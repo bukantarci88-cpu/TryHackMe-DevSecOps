@@ -91,7 +91,6 @@ There are different security concerns for internal and external dependencies:
 
 Overview of the critical 2021 Java logging flaw in Apache Log4j enabling unauthenticated remote code execution across ubiquitous dependency deployments.
 
-![Dependencies](https://cdn-images.tryhackme.com/user-uploads/6093e17fa004d20049b6933e/room-content/fc00c5498dde8630a9b4e5f4ebcc308d.png)
 
 Because this dependency was embedded across countless global products, the vulnerability exposed the catastrophic scale of risk inherent in third-party software supply chains.
 
@@ -279,9 +278,17 @@ Open the site and build your own pipeline to get your flag. Use what you learned
 
 THM{Pipeline.Automation.Is.Fun}
 
+<img width="750" height="568" alt="image" src="https://github.com/user-attachments/assets/ae68ae7b-3af6-43c5-8a11-102cc56c248e" />
 
+<img width="750" height="536" alt="image 1" src="https://github.com/user-attachments/assets/63473463-671b-46af-85b6-04272e3cef04" />
 
+<img width="750" height="536" alt="image 2" src="https://github.com/user-attachments/assets/4b9eb7a5-8feb-4d30-a3a9-5adc539c343a" />
 
+<img width="750" height="536" alt="image 3" src="https://github.com/user-attachments/assets/42a888b0-7858-4b99-be56-049e503929f6" />
+
+<img width="750" height="536" alt="image 4" src="https://github.com/user-attachments/assets/f6354e83-65ff-42f6-95da-cbf90228cb18" />
+
+<img width="750" height="536" alt="image 5" src="https://github.com/user-attachments/assets/cca8e165-891c-4d41-b686-e8a0c258c71c" />
 
 
 ### Task 9 - Conclusion
